@@ -25,4 +25,4 @@ steps:
       echo $(Build.DefinitionName)
       echo $(Build.BuildId)
       echo $(Build.BuildNumber)
-    displayName: 'yarn and yarn build'
+    displayName: 'display info'
