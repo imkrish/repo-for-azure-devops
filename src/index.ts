@@ -1,5 +1,5 @@
 async function main() {
-  console.log('test')
+  console.log('code-workflow')
 }
 
 main()
