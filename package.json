@@ -6,6 +6,10 @@
   "author": "Keerati Limkulphong <imkrish.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "echo build"
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.4",
+    "typescript": "^3.7.4"
   }
 }

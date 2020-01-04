@@ -19,7 +19,7 @@ steps:
   - script: |
       yarn
       yarn build
-    displayName: 'yarn and yarn build'
+    displayName: 'build project'
 
   - script: |
       echo $(Build.DefinitionName)
