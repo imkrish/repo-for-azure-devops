@@ -5,18 +5,18 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+  - '*'
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UseNode@1
-  inputs:
-    checkLatest: true
-  displayName: 'Install Node.js'
+  - task: UseNode@1
+    inputs:
+      checkLatest: true
+    displayName: 'Install Node.js'
 
-- script: |
-    yarn
-    yarn build
-  displayName: 'yarn and yarn build'
+  - script: |
+      yarn
+      yarn build
+    displayName: 'yarn and yarn build'
