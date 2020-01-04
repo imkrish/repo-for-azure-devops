@@ -25,11 +25,9 @@ steps:
       yarn build
     displayName: 'Build'
 
-  - script: |
-      echo $(Build.DefinitionName)
-      echo $(Build.BuildId)
-      echo $(Build.BuildNumber)
-    displayName: 'Display Info'
+  - template: templates/build.yml
+    parameters:
+      buildConfig: 'Debug'
 
   - task: PublishBuildArtifacts@1
     inputs:

@@ -1,0 +1,9 @@
+parameters:
+  buildConfig: 'Release'
+
+steps:
+  - script: |
+      echo $(Build.DefinitionName)
+      echo $(Build.BuildId)
+      echo $(Build.BuildNumber)
+    displayName: 'Build the project -${{ parameters.buildConfig }}'
