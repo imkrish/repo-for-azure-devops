@@ -6,4 +6,4 @@ steps:
       echo $(Build.DefinitionName)
       echo $(Build.BuildId)
       echo $(Build.BuildNumber)
-    displayName: 'Build the project -${{ parameters.buildConfig }}'
+    displayName: 'Build the project - ${{ parameters.buildConfig }}'
