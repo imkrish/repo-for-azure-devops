@@ -20,3 +20,9 @@ steps:
       yarn
       yarn build
     displayName: 'yarn and yarn build'
+
+  - script: |
+      echo $(Build.DefinitionName)
+      echo $(Build.BuildId)
+      echo $(Build.BuildNumber)
+    displayName: 'display info'
