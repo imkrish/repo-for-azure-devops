@@ -1,0 +1,11 @@
+{
+  "name": "repo-for-azure-devops",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/imkrish/repo-for-azure-devops.git",
+  "author": "Keerati Limkulphong <imkrish.developer@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo build"
+  }
+}
