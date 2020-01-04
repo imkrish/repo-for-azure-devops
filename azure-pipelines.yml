@@ -10,10 +10,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  nodeVersion: '10.x'
+  publishFolder: 'dist'
+
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '10.x'
+      versionSpec: '$(nodeVersion)'
     displayName: 'Setup Environment'
 
   - script: |
@@ -29,4 +33,4 @@ steps:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      pathtoPublish: dist
+      pathtoPublish: '$(publishFolder)'
