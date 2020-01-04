@@ -11,18 +11,22 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - task: UseNode@1
+  - task: NodeTool@0
     inputs:
-      checkLatest: true
-    displayName: 'Install Node.js'
+      versionSpec: '10.x'
+    displayName: 'Setup Environment'
 
   - script: |
       yarn
       yarn build
-    displayName: 'build project'
+    displayName: 'Build'
 
   - script: |
       echo $(Build.DefinitionName)
       echo $(Build.BuildId)
       echo $(Build.BuildNumber)
-    displayName: 'display info'
+    displayName: 'Display Info'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: dist
