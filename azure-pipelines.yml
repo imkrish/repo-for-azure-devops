@@ -9,14 +9,18 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  demands:
-    - yarn
 
 steps:
+  - task: UseNode@1
+    inputs:
+      checkLatest: true
+    displayName: 'Install Node.js'
+
   - script: |
       yarn
       yarn build
     displayName: 'yarn and yarn build'
+
   - script: |
       echo $(Build.DefinitionName)
       echo $(Build.BuildId)
