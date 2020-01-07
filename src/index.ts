@@ -3,6 +3,7 @@ async function main() {
   console.log('code-workflow')
   console.log('another line okeee!!!')
   console.log('log from master')
+  console.log('test branch')
 }
 
 main()
