@@ -33,6 +33,7 @@ steps:
 
   - script: |
       yarn test-ci
+    continueOnError: true
     displayName: 'Test'
 
   - task: PublishTestResults@2
