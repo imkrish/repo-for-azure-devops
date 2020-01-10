@@ -1,10 +1,10 @@
-import { add, minus, print } from './utils/number-operator'
+import { NumberOperator } from './utils/number-operator'
 
 async function main() {
-  const result = add(1)(2)
+  const result = NumberOperator.add(1)(2)
   console.log(result)
-  minus(2)(1)
-  print()
+  NumberOperator.minus(2)(1)
+  NumberOperator.print()
 }
 
 main()
