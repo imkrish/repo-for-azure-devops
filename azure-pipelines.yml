@@ -18,6 +18,7 @@ pool:
 variables:
   nodeVersion: '10.x'
   publishFolder: 'dist'
+  codeCoverageFile: 'coverage/cobertura-coverage.xml'
 
 steps:
   - task: NodeTool@0
@@ -30,10 +31,23 @@ steps:
       yarn build
     displayName: 'Build'
 
+   - script: |
+      yarn test
+      yarn test:coverage
+    displayName: 'Test'
+
   - template: templates/build.yml
     parameters:
       buildConfig: 'Debug'
+    displayName: 'Put Info'
+
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: $(codeCoverageFile)
+    displayName: Publish Test Coverage
 
   - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: '$(publishFolder)'
+    displayName: 'Publish Build'
