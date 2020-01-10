@@ -32,26 +32,22 @@ steps:
     displayName: 'Build'
 
   - script: |
-      yarn test
-      yarn test:coverage
+      yarn test-ci
     displayName: 'Test'
-
-  - template: templates/build.yml
-    parameters:
-      buildConfig: 'Debug'
 
   - task: PublishTestResults@2
     inputs:
       testResultsFormat: JUnit
       testResultsFiles: 'test-results/jest-results.xml'
       mergeTestResults: true
+      testRunTitle: 'Jest Unit Tests'
     displayName: Publish Test Results
 
   - task: PublishCodeCoverageResults@1
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
-      reportDirectory: $(System.DefaultWorkingDirectory)/coverage
+      failIfCoverageEmpty: true
     displayName: Publish Test Coverage
 
   - task: PublishBuildArtifacts@1
