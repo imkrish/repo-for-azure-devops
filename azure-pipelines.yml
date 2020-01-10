@@ -40,10 +40,19 @@ steps:
     parameters:
       buildConfig: 'Debug'
 
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: 'test-results/jest-results.xml'
+      mergeTestResults: true
+      failTaskOnFailedTests: true
+    displayName: Publish Test Results
+
   - task: PublishCodeCoverageResults@1
     inputs:
       codeCoverageTool: Cobertura
-      summaryFileLocation: $(codeCoverageFile)
+      summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
+      reportDirectory: $(System.DefaultWorkingDirectory)/coverage
     displayName: Publish Test Coverage
 
   - task: PublishBuildArtifacts@1

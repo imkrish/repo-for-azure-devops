@@ -8,13 +8,14 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "test:coverage": "jest --coverage --coverageReporters=cobertura"
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
-    "handlebars": "4.5.3",
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.4",
+    "handlebars": "4.5.3",
     "jest": "^24.9.0",
+    "jest-junit": "^10.0.0",
     "ts-jest": "^24.3.0",
     "typescript": "^3.7.4"
   }
