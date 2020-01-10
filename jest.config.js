@@ -9,4 +9,5 @@ module.exports = {
     ],
   ],
   coverageReporters: ['cobertura'],
+  modulePathIgnorePatterns: ['node_modules', '<rootDir>/dist/'],
 }
