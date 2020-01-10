@@ -39,13 +39,12 @@ steps:
   - template: templates/build.yml
     parameters:
       buildConfig: 'Debug'
-    displayName: 'Put Info'
 
   - task: PublishCodeCoverageResults@1
     inputs:
       codeCoverageTool: Cobertura
-      summaryFileLocation: '$(codeCoverageFile)'
-    displayName: 'Publish Test Coverage'
+      summaryFileLocation: $(codeCoverageFile)
+    displayName: Publish Test Coverage
 
   - task: PublishBuildArtifacts@1
     inputs:
