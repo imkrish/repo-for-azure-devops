@@ -8,5 +8,6 @@ module.exports = {
       { outputDirectory: './test-results', outputName: 'jest-results.xml' },
     ],
   ],
+  coverageReporters: ['cobertura'],
   modulePathIgnorePatterns: ['node_modules', '<rootDir>/dist/'],
 }
