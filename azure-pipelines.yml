@@ -45,7 +45,6 @@ steps:
       testResultsFormat: JUnit
       testResultsFiles: 'test-results/jest-results.xml'
       mergeTestResults: true
-      failTaskOnFailedTests: true
     displayName: Publish Test Results
 
   - task: PublishCodeCoverageResults@1
