@@ -18,6 +18,7 @@ pool:
 variables:
   nodeVersion: '10.x'
   publishFolder: 'dist'
+  codeCoverageFile: 'coverage/cobertura-coverage.xml'
 
 steps:
   - task: NodeTool@0
@@ -30,10 +31,27 @@ steps:
       yarn build
     displayName: 'Build'
 
-  - template: templates/build.yml
-    parameters:
-      buildConfig: 'Debug'
+  - script: |
+      yarn test-ci
+    continueOnError: true
+    displayName: 'Test'
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: 'test-results/jest-results.xml'
+      mergeTestResults: true
+      testRunTitle: 'Jest Unit Tests'
+    displayName: Publish Test Results
+
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
+      failIfCoverageEmpty: true
+    displayName: Publish Test Coverage
 
   - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: '$(publishFolder)'
+    displayName: 'Publish Build'

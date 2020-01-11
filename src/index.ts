@@ -1,9 +1,10 @@
+import { NumberOperator } from './utils/number-operator'
+
 async function main() {
-  console.log('build pipeline')
-  console.log('code-workflow')
-  console.log('another line okeee!!!')
-  console.log('log from master')
-  console.log('test branch')
+  const result = NumberOperator.add(1)(2)
+  console.log(result)
+  NumberOperator.minus(2)(1)
+  NumberOperator.print()
 }
 
 main()
