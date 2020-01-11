@@ -27,6 +27,10 @@ steps:
       versionSpec: '$(nodeVersion)'
     displayName: 'Setup Environment'
 
+  - script: |
+      dotnet tool update dotnet-sonarscanner -g
+    displayName: 'update sonarscanner'
+    
   - task: SonarCloudPrepare@1
     displayName: 'Prepare SonarCloud analysis'
     inputs:
