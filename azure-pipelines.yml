@@ -13,14 +13,20 @@ trigger:
       - docs/*
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-16.04'
 
 variables:
   nodeVersion: '10.x'
   publishFolder: 'dist'
   codeCoverageFile: 'coverage/cobertura-coverage.xml'
+  dotnetSdkVersion: '2.1.505'
 
 steps:
+  - task: DotNetCoreInstaller@0
+    displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+    inputs:
+      version: '$(dotnetSdkVersion)'
+
   - task: NodeTool@0
     inputs:
       versionSpec: '$(nodeVersion)'
