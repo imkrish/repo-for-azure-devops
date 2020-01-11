@@ -22,11 +22,6 @@ variables:
   dotnetSdkVersion: '2.1.505'
 
 steps:
-  - task: DotNetCoreInstaller@0
-    displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
-    inputs:
-      version: '$(dotnetSdkVersion)'
-
   - task: NodeTool@0
     inputs:
       versionSpec: '$(nodeVersion)'
@@ -39,7 +34,6 @@ steps:
       organization: '$(SonarOrganization)'
       projectKey: '$(SonarProjectKey)'
       projectName: '$(SonarProjectName)'
-      projectVersion: '$(Build.BuildNumber)'
 
   - script: |
       yarn
