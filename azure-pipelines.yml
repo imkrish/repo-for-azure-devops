@@ -34,9 +34,6 @@ steps:
       projectKey: '$(SonarProjectKey)'
       projectName: '$(SonarProjectName)'
       projectVersion: '$(Build.BuildNumber)'
-      extraProperties: |
-        sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml
-        sonar.exclusions=$(Build.SourcesDirectory)/dist
 
   - script: |
       yarn
